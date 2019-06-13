@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ./partials/head.ejs %>
+        <% include ./partials/openid.ejs %>
+        <% include ./partials/maps.ejs %>
+        <script src="/js/search.js"></script>
+    </head>
+    <body>
+        <% include ./partials/header.ejs %>
+        <% include ./partials/modals.ejs %>
+        <main>
+            <div id="map" class="map-results"></div>
+            <div id="search-parameters">
+                <form action="search" method="get">
+                    <div class="field">
+                        <label for="q">Results for</label>
+                        <input class="query" name="q" type="text" value=<%= query %>>
+                    </div>
+                    <div class="field">
+                        <label for="checkin">Check in</label>
+                        <input class="checkin" name="checkin" type="date" value=<%= checkin %>>
+                    </div>
+                    <div class="field">
+                        <label for="checkout">Check out</label>
+                        <input class="checkout" name="checkout" type="date" value=<%= checkout %>>
+                    </div>
+                    <div class="field">
+                        <label for="submit">&nbsp;</label>
+                        <input class="submit" name="submit" type="submit" value="Refine">
+                    </div>
+                </form>
+            </div>
+            <div id="search-results">
+                <% for (var i = 0; i < entries.length; i++) { %>
+                    <% var entry = entries[i]; %>
+                    <div class="search-result">
+                        <div class="container">
+                            <div class="thumb"><img src="img/room-<%= entry.id %>.jpg"></div>
+                            <div class="description">
+                                <h1><%= entry.hotel %></h1>
+                                <p class="address"><%= entry.address %></p>
+                                <ul class="amenities">
+                                    <li>
+                                        <i class="fas fa-bed"></i>
+                                        <%= entry.beds %>
+                                    </li>
+                                    <% if (entry.bathrooms > 0) { %>
+                                        <li>
+                                            <i class="fas fa-shower"></i>
+                                            <%= entry.bathrooms %>
+                                        </li>
+                                    <% } %>
+                                    <% if (entry.aircon) { %>
+                                        <li><i class="fas fa-snowflake"></i></li>
+                                    <% } %>
+                                    <% if (entry.wifi) { %>
+                                        <li><i class="fas fa-wifi"></i></li>
+                                    <% } %>
+                                </ul>
+                            </div>
+                            <div class="book">
+                                <p class="price">$<%= entry.price %></p>
+                                <p>per night</p>
+                                <input class="submit" type="submit" onclick="bookRoom(<%= entry.id %>, <%= entry.price %>);" value="Book">
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </main>
+    </body>
+    <% include ./partials/footer.ejs %>
+</html>
+

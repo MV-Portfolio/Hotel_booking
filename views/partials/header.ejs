@@ -1,0 +1,21 @@
+<header>
+    <h1 class="logo"><a href="/">
+        <i class="fas fa-location-arrow"></i>&nbsp;
+        FindHotels
+    </a></h1>
+    <nav>
+        <% if (user !== undefined) { %>
+            <% if (user.type === "user") { %>
+                <p id="welcome"></p>
+                <a class="bookings" href="/bookings">Manage Bookings</a>
+            <% } else if (user.type === "manager") { %>
+                <p id="welcome"></p>
+                <a class="rooms" href="/rooms">Manage Rooms</a>
+            <% } %>
+            <a class="logout" href="/logout">Log Out</a>
+        <% } else { %>
+            <a class="register">Register</a>
+            <a class="login">Login</a>
+        <% } %>
+    </nav>
+</header>

@@ -1,0 +1,37 @@
+<script src="/js/modals.js"></script>
+<div id="modal-container">
+    <span class="close">&times;</span>
+
+    <div id="modal-register">
+        <h1>Register a new account</h1>
+        <form action="register.json" method="post">
+            <label for="first_name">First name</label>
+            <input required name="first_name" type="text">
+
+            <label for="last_name">Last name</label>
+            <input required name="last_name" type="text">
+
+            <label for="email">Email</label>
+            <input required name="email" type="email">
+
+            <label for="password">Password</label>
+            <input required name="password" type="password">
+
+            <input name="submit" type="submit" value="Register">
+        </form>
+    </div>
+    
+    <div id="modal-login">
+        <h1>Log in to your account</h1>
+        <form action="login-credential.json" method="post">
+            <label for="email">Email</label>
+            <input required name="email" type="email">
+
+            <label for="password">Password</label>
+            <input required name="password" type="password">
+
+            <input name="submit" type="submit" value="Log in">
+        </form>
+        <div class="g-signin2" data-onsuccess="onGoogleSignIn"></div>
+    </div>
+</div>

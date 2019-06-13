@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ./partials/head.ejs %>
+        <% include ./partials/openid.ejs %>
+        <script src="/js/bookings.js"></script>
+    </head>
+    <body>
+        <% include ./partials/header.ejs %>
+        <% include ./partials/modals.ejs %>
+        <main>
+            <div id="management">
+                <h1>Hi <%= user.first_name %>, you can manage your bookings here.</h1>
+                <table id="bookings">
+                    <% if (bookings.length == 0) { %>
+                        <p class="no-bookings">There are no bookings to display.</p>
+                    <% } else { %>
+                        <tr>
+                            <th>Check-in</th>
+                            <th>Check-out</th>
+                            <th>Hotel</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                    <% } %>
+                    <% for (var i = 0; i < bookings.length; i++) { %>
+                        <% var booking = bookings[i]; %>
+                        <tr>
+                            <td><%= booking.checkin %></td>
+                            <td><%= booking.checkout %></td>
+                            <td><%= booking.hotel %></td>
+                            <td>$<%= booking.price %></td>
+                            <td><a class="cancel-booking" onclick="cancelBooking(<%= booking.id %>);">Cancel booking</a></td>
+                        </tr>
+                    <% } %>
+                </table>
+            </div>
+        </main>
+    </body>
+    <% include ./partials/footer.ejs %>
+</html>
+

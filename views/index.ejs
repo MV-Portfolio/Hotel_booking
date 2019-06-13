@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ./partials/head.ejs %>
+        <% include ./partials/openid.ejs %>
+        <% include ./partials/maps.ejs %> 
+    </head>
+    <body>
+        <% include ./partials/header.ejs %>
+        <% include ./partials/modals.ejs %>
+        <main>
+            <div id="search-overlay">
+                <form action="search" method="get">
+                    <span class="fa fa-search"></span>
+                    <input class="query" name="q" type="text" placeholder="Where would you like to stay?">
+                    <input class="submit" type="submit" value="Search">
+                </form>
+            </div>
+            <div id="map" class="map-background"></div>
+        </main>
+    </body>
+    <% include ./partials/footer.ejs %>
+</html>

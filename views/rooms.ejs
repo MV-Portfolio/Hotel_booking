@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ./partials/head.ejs %>
+        <% include ./partials/openid.ejs %>
+        <script src="/js/rooms.js"></script>
+    </head>
+    <body>
+        <% include ./partials/header.ejs %>
+        <% include ./partials/modals.ejs %>
+        <main>
+            <div id="management">
+                <h1>Manage rooms for <%= hotel_name %></h1>
+                <table id="rooms">
+                <% if (rooms.length == 0) { %>
+                    <p class="no-rooms">No rooms to display.</p>
+                <% } else { %>
+                    <tr>
+                        <th>Room ID</th>
+                        <th>Beds</th>
+                        <th>Bathrooms</th>
+                        <th>Max Occupants</th>
+                        <th>Airconditioned</th>
+                        <th>Has WiFi</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                <% } %>
+                <% for (var i = 0; i < rooms.length; i++) { %>
+                    <tr>
+                        <td><%= rooms[i].room_id %></td>
+                        <td><%= rooms[i].beds %></td>
+                        <td><%= rooms[i].bathrooms %></td>
+                        <td><%= rooms[i].max_occupants %></td>
+                        <td><% if (rooms[i].aircon) { %>Yes<% } else { %>No<% } %></td>
+                        <td><% if (rooms[i].wifi) { %>Yes<% } else { %>No<% } %></td>
+                        <td>$<%= rooms[i].price %></td>
+                        <td><a onclick="deleteRoom(<%= rooms[i].room_id %>);">Delete room</a></td>
+                    </tr>
+                <% } %>
+                </table>
+            </div>
+        </main>
+    </body>
+    <% include ./partials/footer.ejs %>
+</html>
+
+

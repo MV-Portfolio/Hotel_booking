@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+
+
+/* Resets and general settings */
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+html {
+    font-family: "Lato", sans-serif;
+
+}
+
+main {
+    position: relative;
+    min-height: 100%;
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 0 20px;
+}
+
+header .logo {
+    font-size: 2em;
+    font-weight: 900;
+}
+
+header .logo a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header nav a {
+    display: inline-block;
+    padding-left: 20px;
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+header .logo:hover,
+header nav *:hover {
+    color: rgba(0, 161, 255, 0.8);
+}
+
+
+/* Footer */
+
+footer {
+    width: 100%;
+    background-color: rgb(50, 50, 50);
+    color: white;
+}
+
+footer .container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 0 100px 0;
+}
+
+footer h1 {
+    text-align: center;
+}
+
+
+/* Modal login and registration */
+
+#modal-container {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding-top: 60px;
+}
+
+#modal-login,
+#modal-register {
+    display: none;
+    background-color: #fefefe;
+    padding: 30px;
+    margin: 5px auto;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+#modal-login h1,
+#modal-register h1 {
+    margin-bottom: 40px;
+}
+
+#modal-login input,
+#modal-register input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#modal-login input[type=submit],
+#modal-register input[type=submit] {
+    background-color: rgb(0, 161, 255);
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+#modal-login input[type=submit]:hover,
+#modal-register input[type=submit]:hover {
+    background-color: rgba(0, 161, 255, 0.8);
+}
+
+#modal-login .g-signin2 {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#modal-login .g-signin2 > div {
+    margin: 0 auto;
+}
+
+#modal-container .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#modal-container .close:hover,
+#modal-container .close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+/* Search bar on home page */
+
+#search-overlay {
+    position: absolute;
+    margin: 0 auto 0 auto;
+    padding: 0 20px 0 20px;
+    top: 40%;
+    right: 0;
+    left: 0;
+    max-width: 900px;
+    z-index: 2;
+}
+
+#search-overlay form {
+    text-align: center;
+    color: #aaa;
+}
+
+#search-overlay .fa-search {
+    position: absolute;
+    padding: 15px 0 0 15px;
+    font-size: 20px;
+}
+
+#search-overlay .query {
+    width: 99%;
+    height: 50px;
+    border: 1px solid grey;
+    border-radius: 2px;
+    text-indent: 50px;
+    font-size: 16pt;
+}
+
+#search-overlay .submit {
+    position: absolute;
+    height: 40px;
+    width: 90px;
+    margin: 6px 0 0 -96px;
+    text-indent: 0;
+    background-color: rgb(0, 161, 255);
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+#search-overlay .submit:hover {
+    background-color: rgba(0, 161, 255, 0.8);
+}
+
+
+/* Search results */
+
+#search-parameters {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto 90px auto;
+    padding: 20px 20px 0 20px;
+}
+
+#search-parameters .field {
+    float: left;
+}
+
+#search-parameters input,
+#search-parameters label {
+    display: block;
+}
+
+#search-parameters label {
+    margin: 0 0 2px 2px;
+}
+
+#search-parameters .query {
+    min-width: 400px;
+    height: 20px;
+    margin: 0 10px 0 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#search-parameters .checkin,
+#search-parameters .checkout {
+    min-width: 100px;
+    height: 20px;
+    margin: 0 10px 0 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: "Lato", sans-serif;
+}
+
+#search-parameters .submit {
+    min-width: 100px;
+    height: 38px;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #000;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#search-parameters .submit:hover {
+    border: 1px solid darkgrey;
+    color: darkgrey;
+}
+
+#search-results {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+}
+
+.search-result {
+    clear: both;
+}
+
+.search-result .container {
+    display: inline-block;
+    width: 100%;
+    padding: 20px 0 20px 0;
+}
+
+.search-result .thumb {
+    float: left;
+    margin-right: 20px;
+    width: 250px;
+}
+
+.search-result .thumb img {
+    width: 250px;
+}
+
+.search-result .description {
+    float: left;
+}
+
+.search-result h1 {
+    font-size: 1.6em;
+}
+
+.search-result h1 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.search-result h1 a:hover {
+    color: rgb(0, 161, 255);
+}
+
+.search-result .address {
+    padding: 4px 0 0 0;
+}
+
+.search-result .amenities {
+    padding: 10px 0 0 0;
+    list-style-type: none;
+}
+
+.search-result .amenities li {
+    display: inline-block;
+    padding: 0 15px 0 0;
+}
+
+.search-result .book {
+    float: right;
+    width: 100px;
+    text-align: center;
+}
+
+.search-result .book .price {
+    font-size: 1.8em;
+}
+
+.search-result .book .submit {
+    width: 100%;
+    height: 30px;
+    margin: 10px 0 0 0;
+    background-color: rgb(0, 161, 255);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.search-result .book .submit:hover {
+    background-color: rgba(0, 161, 255, 0.8);
+}
+
+
+/* Room management page */
+
+#management {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 0 20px;
+}
+
+#management h1 {
+    font-size: 1.8em;
+    margin: 40px 0 40px 0;
+}
+
+#management table {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    margin: 0 0 40px 0;
+}
+
+#management table td,
+#management table th {
+    padding: 12px;
+}
+
+#management table th {
+    padding: 12px;
+    text-align: left;
+    background-color: rgb(0, 161, 255);
+    color: white;
+}
+
+#management table td a {
+    color: rgb(0, 161, 255);
+    cursor: pointer;
+}
+
+#management table td a:hover {
+    color: rgba(0, 161, 255, 0.8);
+}
+
+
+/* Google Maps */
+
+.map-background {
+    width: 100%;
+    height: 800px;
+    min-height: 400px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+.map-results {
+    width: 100%;
+    height: 400px;
+    margin: auto;
+    top: 0;
+    right: 0;
+    position: relative;
+    z-index: 2;
+}
